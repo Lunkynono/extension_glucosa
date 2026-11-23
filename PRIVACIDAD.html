@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacidad y permisos · Diapreneur</title>
+<style>body{font:17px/1.6 system-ui;color:#19362e;background:#f3f8f5;margin:0}main{max-width:740px;margin:auto;padding:25px}h2{margin-top:30px}a{color:#006b55}</style>
+<main>
+<h1>Privacidad y permisos</h1>
+<p>Diapreneur · Glucosa 1.4.0 es un proyecto independiente. Esta página describe medidas comprobables en su código. La extensión no ha recibido una auditoría de seguridad independiente.</p>
+<h2>Cómo llegan tus datos</h2>
+<p>La extensión envía el correo y la contraseña a los servidores regionales de Abbott mediante HTTPS para obtener un token de acceso. Ese token permite consultar tus conexiones y sus lecturas. La contraseña no se guarda.</p>
+<p>Las peticiones se limitan a cinco servidores de LibreView, definidos en el manifiesto. El código rechaza redirecciones HTTP. No incorpora publicidad, analítica ni un servidor del desarrollador.</p>
+<h2>Qué se guarda en el ordenador</h2>
+<p>En el perfil local de Chrome se guardan el token, la conexión seleccionada, la última lectura del icono, el estado de los avisos y los ajustes. Esto permite recuperar la sesión al reiniciar. Los datos no se guardan mediante la sincronización de Chrome.</p>
+<p>El acceso al almacenamiento se restringe a los contextos propios de la extensión. El almacenamiento local no tiene cifrado propio. Una persona o un programa con acceso al perfil del ordenador podría recuperar el token. En un equipo compartido, utiliza Cerrar sesión al terminar.</p>
+<p>Cerrar sesión borra el token, la conexión y el estado de las lecturas y avisos de esta instalación. Los ajustes de tema y unidades se conservan. La acción no revoca las sesiones de Abbott en otros dispositivos. Desinstalar elimina el almacenamiento de la extensión.</p>
+<h2>Qué permisos utiliza</h2>
+<ul><li><strong>Almacenamiento</strong> para conservar sesión y preferencias.</li>
+<li><strong>Consultas programadas</strong> para actualizar el icono y la tendencia.</li>
+<li><strong>Notificaciones</strong> para avisar de subidas y bajadas.</li>
+<li><strong>Acceso a LibreView</strong> para consultar las lecturas compartidas.</li></ul>
+<p>El manifiesto no solicita acceso al historial de navegación, a todas las páginas ni al contenido de las pestañas. Los scripts y las fuentes se incluyen en el paquete.</p>
+<h2>Comprobar los permisos</h2>
+<p>Escribe chrome://extensions en la barra de direcciones y abre Detalles en la tarjeta de Diapreneur · Glucosa. Ahí puedes revisar los permisos y quitar la extensión.</p>
+<h2>Lecturas y límites</h2>
+<p>Las lecturas de 15 minutos o más se señalan como atrasadas y desaparecen del icono. Chrome o LibreLinkUp pueden retrasar los datos. El token puede caducar y requerir iniciar sesión de nuevo. Usa la aplicación oficial para decisiones de tratamiento.</p>
+<p><a href="EMPEZAR-AQUI.html">Volver a la guía de instalación</a></p>
+</main></html>

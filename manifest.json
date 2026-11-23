@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "minimum_chrome_version": "120",
+  "name": "Diapreneur · Glucosa",
+  "version": "1.4.0",
+  "description": "Consulta tus lecturas compartidas de LibreLinkUp en un clic.",
+  "action": {
+    "default_title": "Diapreneur · Glucosa",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://api-us.libreview.io/*",
+    "https://api-eu.libreview.io/*",
+    "https://api-eu2.libreview.io/*",
+    "https://api-de.libreview.io/*",
+    "https://api-fr.libreview.io/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src https://api-us.libreview.io https://api-eu.libreview.io https://api-eu2.libreview.io https://api-de.libreview.io https://api-fr.libreview.io"
+  }
+}

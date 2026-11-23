@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Diapreneur · Glucosa</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="cyberpunk.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand">
+        <img src="icons/48.png" alt="" width="36" height="36">
+        <div>
+          <p>Diapreneur</p>
+          <h1>Glucosa</h1>
+        </div>
+      </div>
+      <button id="refresh" class="icon-button" type="button" hidden title="Actualizar lecturas" aria-label="Actualizar lecturas">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 5v5h-5M4 19v-5h5"/><path d="M4.8 9A7.6 7.6 0 0 1 18 6.5l2 3.5m-16 4 2 3.5A7.6 7.6 0 0 0 19.2 15"/></svg>
+      </button>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Secciones">
+      <button id="glucose-tab" type="button" role="tab" aria-selected="true" aria-controls="glucose-pane">Glucosa</button>
+      <button id="settings-tab" type="button" role="tab" aria-selected="false" aria-controls="settings-pane" tabindex="-1">Ajustes</button>
+    </div>
+
+    <div id="glucose-pane" role="tabpanel" aria-labelledby="glucose-tab">
+      <p id="message" class="message" role="status" hidden></p>
+
+      <section id="login-view" class="panel" aria-labelledby="login-title" hidden>
+        <h2 id="login-title">Conecta LibreLinkUp</h2>
+        <p class="intro">Usa la cuenta de LibreLinkUp que ya recibe las lecturas de tu sensor.</p>
+        <form id="login-form">
+          <label for="email">Correo</label>
+          <input id="email" type="email" name="email" maxlength="254" autocapitalize="none" autocomplete="off" required>
+          <label for="password">Contraseña</label>
+          <input id="password" type="password" name="password" autocomplete="off" required>
+          <button class="primary" type="submit">Conectar cuenta</button>
+        </form>
+        <button id="demo" class="text-button" type="button">Ver con datos de ejemplo</button>
+      </section>
+
+      <section id="dashboard" aria-label="Lecturas de glucosa" hidden>
+        <div id="connection-field" class="connection" hidden>
+          <label for="patient">Conexión de LibreLinkUp</label>
+          <select id="patient"></select>
+        </div>
+        <div class="panel reading">
+          <div class="reading-heading">
+            <h2>Última lectura</h2>
+            <span id="reading-status" class="pill"></span>
+          </div>
+          <div class="reading-content">
+            <div>
+              <div class="value-row">
+                <span id="value" class="value">—</span>
+                <span id="units" class="units">mg/dL</span>
+              </div>
+              <p class="description"><time id="reading-time"></time></p>
+            </div>
+            <div id="trend" class="trend" hidden>
+              <span id="arrow" class="arrow" aria-hidden="true" hidden></span>
+              <span id="trend-label"></span>
+            </div>
+          </div>
+        </div>
+        <div class="panel chart">
+          <h2>Últimas 3 horas <span id="chart-units">mg/dL</span></h2>
+          <canvas id="plot" width="382" height="176" role="img" aria-label="Gráfica de glucosa"></canvas>
+          <p id="chart-empty" class="chart-empty" hidden></p>
+        </div>
+        <div class="account">
+          <span id="source">LibreLinkUp</span>
+          <button id="signout" class="text-button" type="button">Cerrar sesión</button>
+        </div>
+      </section>
+      <footer>Consulta complementaria. Usa la app oficial para decisiones de tratamiento.</footer>
+    </div>
+
+    <section id="settings-pane" class="panel settings" role="tabpanel" aria-labelledby="settings-tab" hidden>
+      <div class="setting">
+        <label for="unit-setting">Unidad de glucosa</label>
+        <select id="unit-setting">
+          <option value="mg/dL">mg/dL</option>
+          <option value="mmol/L">mmol/L</option>
+        </select>
+      </div>
+      <div class="setting">
+        <label for="theme-setting">Tema</label>
+        <select id="theme-setting">
+          <option value="classic">Clásico</option>
+          <option value="cyberpunk">Cyberpunk</option>
+        </select>
+      </div>
+      <div class="setting">
+        <label for="alerts-setting">Avisos de subida y bajada</label>
+        <input id="alerts-setting" type="checkbox" checked>
+      </div>
+      <p class="intro">La sesión se conserva en este perfil hasta que caduque o cierres sesión. Tu contraseña no se guarda. <a href="PRIVACIDAD.html" target="_blank" rel="noopener">Privacidad y permisos</a></p>
+      <p id="settings-error" class="message" role="status" hidden>No se pudo guardar el ajuste.</p>
+    </section>
+  </main>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
