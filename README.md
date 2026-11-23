@@ -122,6 +122,19 @@ La extensión trata información de salud y credenciales. Revisa [Privacidad y p
 
 Cerrar sesión elimina el token, la conexión seleccionada y el estado de las lecturas de esta instalación. No revoca sesiones de Abbott iniciadas en otros dispositivos.
 
+## Verificar el ZIP y revisar el código
+
+Antes de instalar una versión descargada, puedes pasar el archivo ZIP por [VirusTotal](https://www.virustotal.com/) para obtener una segunda comprobación con varios motores de seguridad:
+
+1. Descarga el ZIP desde la sección **Releases** de este repositorio.
+2. Abre VirusTotal y selecciona el archivo ZIP.
+3. Espera a que termine el análisis y revisa si algún motor detecta algo.
+4. Si aparece una detección, no instales la extensión: abre una incidencia en GitHub indicando la versión y el resultado.
+
+El proyecto es código abierto. Cualquier persona puede entrar en GitHub y revisar archivo por archivo qué hace la extensión, incluidos `manifest.json`, `popup.js`, `background.js`, `librelinkup.js` y `storage.js`. También puedes descargar el código fuente y compararlo con los archivos incluidos en el ZIP.
+
+> No subas a VirusTotal capturas, archivos de configuración, tokens ni ningún ZIP que contenga datos personales o lecturas identificables. Utiliza únicamente el ZIP público de la versión que quieras comprobar y revisa las condiciones de privacidad del servicio antes de cargarlo.
+
 ## Permisos solicitados
 
 | Permiso | Para qué se usa |
